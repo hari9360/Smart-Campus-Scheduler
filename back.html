@@ -1,0 +1,79 @@
+<style>
+    .back-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #F45D22;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 44px;
+    	height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        transition: background-color 0.3s ease;
+        z-index: 999;
+    }
+
+    .back-button:hover {
+        background-color: #D1491D;
+    }
+
+    /* ✅ Style for Image with White Filter */
+    .back-button img {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+        filter: brightness(0) invert(1); /* Convert image to pure white */
+    }
+
+    /* ✅ Popup Back Text */
+    .popup-text {
+        position: absolute;
+        right: 50px;
+        background-color: #192A56;
+        color: #fff;
+        padding: 8px 14px;
+        border-radius: 8px;
+        font-size: 14px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+    }
+
+    /* ✅ Arrow Pointer */
+    .popup-text::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -8px;
+        transform: translateY(-50%);
+        border-width: 8px;
+        border-style: solid;
+        border-color: transparent transparent transparent #192A56;
+    }
+
+    /* ✅ Show Popup on Hover */
+    .back-button:hover .popup-text {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+</style>
+
+<!-- ✅ Back Button with Popup -->
+<button class="back-button" onclick="goBack()">
+    <img src="https://crm.traditionaltech.in/img/left.png" alt="Back">
+    <span class="popup-text">Back</span>
+</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
